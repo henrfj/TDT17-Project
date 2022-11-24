@@ -6,8 +6,8 @@
 #SBATCH --ntasks-per-node=2
 #SBATCH --mem=64000
 #SBATCH --gres=gpu:A100m40:2
-#SBATCH --job-name="multi_gpu_20_high_res"
-#SBATCH --output=out_files/multi_gpu_20_high_res.out
+#SBATCH --job-name="multi_gpu_50_2"
+#SBATCH --output=out_files/multi_gpu_50_2.out
 #SBATCH --mail-user=henrfj@stud.ntnu.no
 #SBATCH --mail-type=FAIL
 
@@ -24,6 +24,6 @@ echo "Total of $SLURM_NTASKS cores"
 
 module purge
 module load Anaconda/2020.07
-python yolov5/train.py --img 2000 --cfg yolov5s.yaml --hyp hyp.scratch-med.yaml --batch 32 --epochs 20 --data crddc2022.yaml --weights yolov5s.pt --workers 24 --name multi_gpu_20_high_res --device 0,1
+python yolov5/train.py --img 800 --cfg yolov5s.yaml --hyp hyp.scratch-med.yaml --batch 32 --epochs 50 --data crddc2022.yaml --weights yolov5s.pt --workers 24 --name multi_gpu_50_2 --device 0,1
 
 uname -a

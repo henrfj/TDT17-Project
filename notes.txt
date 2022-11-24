@@ -1,0 +1,47 @@
+Activate venv, and add it to jupyter:
+
+https://janakiev.com/blog/jupyter-virtual-envs/
+
+Working with YOLOv5:
+
+https://blog.paperspace.com/train-yolov5-custom-data/
+
+https://towardsdatascience.com/advanced-yolov5-tutorial-enhancing-yolov5-with-weighted-boxes-fusion-3bead5b71688
+
+Connecting to IDUN, and running distributed jobs:
+
+https://www.hpc.ntnu.no/idun/getting-started-on-idun/lessons-from-a-former-masters-student/
+
+-------------------------------------------------------------
+
+More about using HPC:
+
+https://researchcomputing.princeton.edu/support/knowledge-base/memory?fbclid=IwAR2-Tl3uS1_76w45grEbjWWOxLKOsWI2llLdzpSrgWQ-SkBqxErZovbHAw4
+
+--------------------------------------------------------------
+
+Results:
+
+- Not good at D40: too little training data - sees manhole covers, dark oil spills and even dirt on the lense.
+- Make graphs of class instances predicted Vs. in training data - does it make sense? Resolution might be a problem!
+        - Could not run at higher resolution: too long time :(
+        
+ - /yolov5/runs/detect/gpu_single_30/Norway_009004.jpg is a nice illustration for the presentation.
+ 
+ 
+ 
+ ---------------------------------------------------------------------
+ Some succesful runs:
+ 
+     - overnight rungpu_hf_yolo_on.out: yolov5/runs/train/gpu_single_30,
+     
+         => yolov5/runs/train/gpu_single_30/weights
+         
+         Running low and high res detections:
+         "detection_single_gpu_30_low_res" and "detection_single_gpu_30_high_res"
+             - To be found under yolov5/runs/detect
+             
+          => Submissions created.
+              What?? The detection_single_gpu_30_low_res found more D20 than D10! Interesting (Ensemble would be cool).
+              
+     - Could concider turning up the Recall; from 0.25 -> 0.35 or something
